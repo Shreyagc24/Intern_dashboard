@@ -1,0 +1,53 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #74ebd5, #9face6);
+  margin: 0;
+  padding: 0;
+  color: #222;
+}
+
+.container {
+  max-width: 700px;
+  margin: auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  margin-top: 5vh;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+input[type="text"], input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+input[type="submit"] {
+  background-color: #3c40c6;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+h1, h2, h3 {
+  color: #1c1c1c;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+}
+
+.skip-link:focus {
+  left: 0;
+  background: black;
+  color: white;
+  padding: 8px;
+  z-index: 1000;
+}
+
+ul {
+  padding-left: 20px;
+}

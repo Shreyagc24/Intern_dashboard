@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ intern.name }}'s Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">👋 Welcome, {{ intern.name }}</h2>
+        
+        <div class="card p-4 my-4">
+            <p><strong>🔗 Referral Code:</strong> {{ intern.referral }}</p>
+            <p><strong>💰 Total Donations Raised:</strong> ₹{{ intern.donation }}</p>
+        </div>
+
+        <h4 class="mt-4">🎁 Rewards & Unlockables</h4>
+        <div class="reward-item">🎖 Bronze Badge – ₹500+</div>
+        <div class="reward-item">🏅 Silver Badge – ₹1000+</div>
+        <div class="reward-item">💎 Gold Badge – ₹2000+</div>
+
+        <a href="/leaderboard" class="btn btn-outline-dark mt-4">📈 View Leaderboard</a>
+    </div>
+</body>
+</html>
