@@ -47,9 +47,9 @@ cd Intern_dashboard
 2. Create and activate a Python virtual environment:
 bash
 python -m venv venv
-# Windows
+### Windows
 venv\Scripts\activate
-# Linux/macOS
+### Linux/macOS
 source venv/bin/activate
 
 3. Install dependencies:
