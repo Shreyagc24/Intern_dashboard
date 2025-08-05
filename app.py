@@ -1,20 +1,20 @@
 from flask import Flask, jsonify, render_template, request, redirect, url_for
 from pymongo import MongoClient
-import uuid
 import os
 
 app = Flask(__name__)
 
-# Use MongoDB Atlas URI (recommended for production)
-# Store your URI securely in an environment variable or directly paste it (not secure)
-MONGO_URI = os.getenv("MONGO_URI", "mongodb+srv://shreyanrg2405:<db_password>@interndashboard.8mwqnhq.mongodb.net/?retryWrites=true&w=majority&appName=InternDashboard")
+# Get MongoDB URI securely from environment variable (do not hardcode)
+MONGO_URI = os.environ.get("MONGO_URI")
+if not MONGO_URI:
+    raise Exception("MONGO_URI environment variable not set")
 
 # MongoDB Setup
 client = MongoClient(MONGO_URI)
 db = client['intern_dashboard']
 interns = db['interns']
 
-# Dummy Data Insert (only runs once)
+# Dummy Data Insert (only once if empty)
 if interns.count_documents({}) == 0:
     interns.insert_many([
         {"name": "Ritik", "referral": "ritik2025", "donation": 1200},
@@ -54,4 +54,5 @@ def leaderboard():
     return render_template('leaderboard.html', data=data)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(debug=True, host='0.0.0.0', port=port)
