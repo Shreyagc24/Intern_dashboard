@@ -1,11 +1,16 @@
 from flask import Flask, jsonify, render_template, request, redirect, url_for
 from pymongo import MongoClient
 import uuid
+import os
 
 app = Flask(__name__)
 
+# Use MongoDB Atlas URI (recommended for production)
+# Store your URI securely in an environment variable or directly paste it (not secure)
+MONGO_URI = os.getenv("MONGO_URI", "mongodb+srv://shreyanrg2405:<db_password>@interndashboard.8mwqnhq.mongodb.net/?retryWrites=true&w=majority&appName=InternDashboard")
+
 # MongoDB Setup
-client = MongoClient("mongodb://localhost:27017/")
+client = MongoClient(MONGO_URI)
 db = client['intern_dashboard']
 interns = db['interns']
 
